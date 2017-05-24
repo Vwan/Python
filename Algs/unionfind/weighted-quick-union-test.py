@@ -4,7 +4,7 @@ import weightedquickunion
 
 qf = weightedquickunion.WeightedQuickUnion(10)
 
-print "initial root list is %s" % (",").join(str(x) for x in qf.root)
+print "initial id list is %s" % (",").join(str(x) for x in qf.id)
 
 list = [
         (4,3),
@@ -25,7 +25,8 @@ for k in list:
     q =  k[1]
     print "." * 10 + "unioning %d and %d"  % (p,q)  + "." * 10
     qf.union(p,q)
-    print "%d and %d is connected? %s" % (p,q,str(qf.isConnected(p,q)    ))
+    print "%d and %d is connected? %s" % (p,q,str(qf.connected(p,q)    ))
     
 
-print "final root list is %s" % (",").join(str(x) for x in qf.root)
+print "final id list is %s" % (",").join(str(x) for x in qf.id)
+print "count of components is: %d" % qf.count

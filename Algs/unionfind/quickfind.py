@@ -11,7 +11,7 @@ class QuickFind(object):
             self.id.append(i)
             i+=1
             
-    def isConnected(self,p,q):
+    def connected(self,p,q):
         return self.find(p) == self.find(q)
     
     def find(self,p):    
@@ -19,8 +19,9 @@ class QuickFind(object):
     
     def union(self,p,q):
         idp = self.find(p)
-        if not self.isConnected(p,q):
-            for i in range(self.count):
-                if self.id[i]==idp:
-                    self.id[i] = self.id[q]
+        if not self.connected(p,q):
+            for i in range(len(self.id)):
+                if self.id[i]==idp: # 将p所在组内的所有节点的id都设为q的当前id
+                    self.id[i] = self.id[q] 
+            self.count -= 1
                                 
