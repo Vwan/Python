@@ -1,0 +1,14 @@
+import wordcloud
+from wordcloud import WordCloud
+
+filename = "words.txt"
+with open(filename) as f:
+    mytext = f.read()
+mytext
+
+wordcloud = WordCloud().generate(mytext)
+
+%pylab inline
+import matplotlib.pyplot as plt
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
