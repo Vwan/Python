@@ -1,0 +1,8 @@
+{
+  "calculatortest.py::SimpleCalculatorTests::test_addition": true, 
+  "calculatortest.py::SimpleCalculatorTests::test_combination": true, 
+  "calculatortest.py::SimpleCalculatorTests::test_division": true, 
+  "calculatortest.py::SimpleCalculatorTests::test_initialize": true, 
+  "calculatortest.py::SimpleCalculatorTests::test_multiplication": true, 
+  "calculatortest.py::SimpleCalculatorTests::test_subtraction": true
+}
