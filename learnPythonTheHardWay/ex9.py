@@ -5,7 +5,7 @@ print "days:",days
 print "months",months
 
 print """
-line 1,
-line2
+Jan,
+Feb
 ....
 """

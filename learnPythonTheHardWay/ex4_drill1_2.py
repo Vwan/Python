@@ -1,5 +1,5 @@
 cars=100
-space_in_a_car=4.0
+space_in_a_car=4 ## replace float with int to make a meaningful whole number of carpool_capacity 
 drivers=30
 passengers=90
 cars_not_driven=cars-drivers
