@@ -1,0 +1,61 @@
+
+课堂作业要求
+
+选择简书“解密大数据”专题里面上次爬虫课的作业文档地址作为分析页面
+分析并提交该页面的网页结构分析与元素标签位置信息
+
+作业内容
+网页地址：http://www.jianshu.com/p/88d0addf64fa浏览器：Chrome
+HTML 基础
+对html有一定基础，但有些元素不太熟悉，浏览页面源码时，摘录学习了下：
+
+
+<!DOCTYPE>: 声明文档的类型，以便浏览器知道如何显示该文档。非Html标签。简书的声明是这样的：<!DOCTYPE html>，表示网页至少升级到[HTML5]的第一步。(http://www.w3school.com.cn/html/html5_intro.asp)。
+
+
+HTML <meta> 标签：存放描述文档的元信息，比如作者、关键字、文档类型、编码等。简书的编码：<meta charset="utf-8">，支持各种语言显示。
+
+页面结构
+这个页面由三大部分组成：
+
+
+顶部导航栏包含简书的一些基本功能元素，以及用户信息文章入口
+
+
+正文包含文章正文，作者及支持部分，作者与读者互动评论部分，以及页边栏
+
+
+底部包含简书的一些推荐内容
+
+
+
+图片.png
+
+页面标签位置
+根据页面三大部分，在chrome中通过开发者工具，查看各部分对应源码，分析各页面元素位置：
+所有的页面内容均包含在 <body lang="zh-CN" class="reader-black-font">
+
+图片.png
+
+
+
+顶部导航栏可根据class属性“navbar navbar-default navbar-fixed-top”获取。<!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">如要找到用户标签，可通过下面高亮的路径。
+
+
+
+
+
+正文所有内容均在<div class="note">标签内
+
+
+
+图片.png
+
+
+底部所有内容均在<div class="note-bottom">内
+
+全局图：
+图片.png
+
+
