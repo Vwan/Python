@@ -45,3 +45,9 @@ def to_be_crawled_link(alinks,url_seed,url_root):
                 realUrl = urlparse.urljoin(url_root,link)
                 links_to_be_crawled.add(realUrl)
     return links_to_be_crawled
+
+def to_be_crawled_links(alinks,count,url_root,url_seed):
+    url = url_seed % count
+    links = to_be_crawled_link(alinks,url_root,url)#,{'class':'title'})
+    links.add(url)
+    return links

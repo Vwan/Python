@@ -1,23 +1,14 @@
 # -*- coding: utf-8 -*-
 import spidercomm as common
-import lxml
 import urlparse
 from lxml import etree
-from StringIO import StringIO
 
-def crawled_links(url_seed,url_root,attrs={}):
-    crawled_links=set()
+# get all tags a from a single url
+def a_links(url_seed,attrs={}):
     html = common.download(url_seed)
     tree = etree.HTML(html)
-    links= tree.xpath("//a")
-    if len(links)==0:
-        return crawled_links
-    for link in links:
-        link = link.get('href')
-        if link not in crawled_links:
-            realUrl = urlparse.urljoin(url_root,link)
-            crawled_links.add(realUrl)
-    return crawled_links
+    alinks= tree.xpath("//a")
+    return alinks
 
 def crawled_page(crawled_url):
         html = common.download(crawled_url)
@@ -25,11 +16,14 @@ def crawled_page(crawled_url):
         title= tree.xpath("/html/body/div[1]/div[1]/div[1]/h1")
         if title == None or len(title) == 0:
             return "Title_Is_None",crawled_url
-        content = tree.xpath("/html/body/div[1]/div[1]/div[1]/div[2]")
-        if content == None or len(content) ==0:
-            return title[0].text, "Content_Is_None"
-        print "\n".join(x.text for x in content)
-        return title[0].text,"\n".join(x.text for x in content)
+        contents = tree.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/*")
+        if contents == None or len(contents) ==0:
+            return title.text, "Content_Is_None"
+        content = ''
+        for x in contents:
+            if (x.text != None):
+                content = content + x.xpath('string()')
+        return title[0].text,content
 
 def isMultiPaged(url):    
     html_page1 = common.download(url % 1)
