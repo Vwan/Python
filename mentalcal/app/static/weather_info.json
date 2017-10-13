@@ -1,0 +1,7 @@
+{        'city':'HeWeather5[0].basic.city',
+                        'weather':'HeWeather5[0].now.cond.txt',
+                        'wind':"HeWeather5[0].now.wind.dir",
+                        'temperature':"HeWeather5[0].now.tmp",
+                        'last_updated_on':'HeWeather5[0].basic.update.utc',
+                        'date':'HeWeather5[0].basic.update.loc',
+                        }
